@@ -5,11 +5,11 @@ public class Jogador implements Jogavel {
 	private int vida = 2;
 	private int defesa = 50;
 	
-	public Jogador(String nome, int vida, int defesa) {
+	public Jogador(String nome) {
 		super();
 		this.nome = nome;
-		this.vida = vida;
-		this.defesa = defesa;
+		this.vida = 2;
+		this.defesa = 50;
 	}
 	public Jogador() {
 	}
@@ -17,6 +17,10 @@ public class Jogador implements Jogavel {
 
 	public String getNome() {
 		return nome;
+	}
+	
+	public void setNome(String nome) { 
+		this.nome = nome;
 	}
 
 	public int getVida() {
@@ -34,8 +38,8 @@ public class Jogador implements Jogavel {
 
         if (this.defesa < 0) {
             System.out.println("Defesa quebrada!");
-            this.vida -= 1; // Perde 1 ponto de vida
-            this.defesa += 100; // Defesa é aumentada em +100
+            this.vida -= 1; 
+            this.defesa += 100; 
         }
     }
 
@@ -47,18 +51,11 @@ public class Jogador implements Jogavel {
 
     @Override
     public boolean estaVivo() {
-        return this.vida > 0 && this.defesa > 0;
+    	return this.vida > 0 || this.defesa > 0;
     }
 
-    public void status() {
-        System.out.println("STATUS: [Vida: " + this.vida + ", Defesa: " + this.defesa + "]");
+    @Override
+    public String toString() {
+        return "O Jogador" + nome + "', Está com a vida= " + vida + ", E a defesa= " + defesa;
     }
-	public void setVida(int i) {
-		// TODO Stub de método gerado automaticamente
-		
-	}
-	public void setDefesa(int i) {
-		// TODO Stub de método gerado automaticamente
-		
-	}
 }
